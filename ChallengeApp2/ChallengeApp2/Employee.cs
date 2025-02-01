@@ -39,6 +39,7 @@ foreach (var employee in employees)
     }
 }
 
+
 Console.WriteLine("Najwyzszą liczbe punktów:");
 Console.WriteLine( employeeWithMaxResult.Result );
 Console.WriteLine("Otrzymała:");
