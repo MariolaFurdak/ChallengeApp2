@@ -1,4 +1,6 @@
-﻿namespace ChallengeApp2.Tests
+﻿using NUnit.Framework;
+
+namespace ChallengeApp2.Tests
 {
     public class TypeTests
     {
