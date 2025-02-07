@@ -1,29 +1,10 @@
-﻿namespace ChallengeApp2;
-public class Employee
-{
-    private List<int> score = new List<int>();
+﻿using ChallengeApp2;
 
-    public Employee(string name, string surname, int age)
-    {
-        this.Name = name;
-        this.Surname = surname;
-        this.Age = age;
-    }
+var employee = new Employee("Daniel", "Kowalski");
+employee.AddGrade(5);
+employee.AddGrade(6);
+var statistics = employee.GetStatistics();
 
-    public string Name { get; private set; }
-    public string Surname { get; private set; }
-    public int Age { get; private set; }
-
-    public int Result
-    {
-        get
-        {
-            return this.score.Sum();
-        }
-    }
-    public void AddScore (int number)
-    {
-        this.score.Add(number);
-    }
-}
-     
+Console.WriteLine($"Average: {statistics.Average:N2}");
+Console.WriteLine($"Min: {statistics.Min}");
+Console.WriteLine($"Max: {statistics.Max}"); 
