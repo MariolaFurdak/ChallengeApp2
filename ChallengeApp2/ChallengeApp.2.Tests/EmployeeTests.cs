@@ -5,33 +5,33 @@ namespace ChallengeApp._2.Tests
     public class EmployeeTests
     {
         [Test]
-        public void MaxValueCheck()
+        public void LetterValueCheck()
         {
             var employee = new Employee("Mariola", "Nowak");
             //arrange
-            employee.AddGrade(5);
-            employee.AddGrade(9);
-            employee.AddGrade(4);
+            employee.AddGrade(50);
+            employee.AddGrade(40);
+            employee.AddGrade(80);
             //act
             var statistics = employee.GetStatistics();
 
             //assert
-            Assert.AreEqual(9, statistics.Max);
+            Assert.AreEqual('C', statistics.AverageLetter);
         }
 
         [Test]
-        public void MinValueCheck()
+        public void AverageLetterValueCheck()
         {
             var employee = new Employee("Mariola", "Nowak");
             //arrange
-            employee.AddGrade(5.6f);
-            employee.AddGrade(9);
-            employee.AddGrade(4);
+            employee.AddGrade(100);
+            employee.AddGrade(100);
+            employee.AddGrade(40);
             //act
             var statistics = employee.GetStatistics();
 
             //assert
-            Assert.AreEqual(4, statistics.Min);
+            Assert.AreEqual('A', statistics.AverageLetter);
         }
         [Test]
 

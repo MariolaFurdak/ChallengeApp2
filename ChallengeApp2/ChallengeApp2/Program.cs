@@ -1,30 +1,21 @@
 ﻿using ChallengeApp2;
 
+Console.WriteLine("Witam w progranie do oceny pracownikow");
+Console.WriteLine();
+
 var employee = new Employee("Daniel", "Kowalski");
-employee.AddGrade(5);
-employee.AddGrade(2);
-employee.AddGrade(10);
+while (true)
+{
+  Console.WriteLine("Podaj kolejną ocene pracownika");
+  var input = Console.ReadLine();
+  if (input == "q")
+    {
+        break;
+    }
+    employee.AddGrade(input);
+}
 
-var statistics1 = employee.GetStatisticsWithFor();
-Console.WriteLine("Statystyki z wykozystaniem pętli For");
-Console.WriteLine($"Average: {statistics1.Average:N2}");
-Console.WriteLine($"Min: {statistics1.Min}");
-Console.WriteLine($"Max: {statistics1.Max}");
-
-var statistics2 = employee.GetStatisticsWithForeach();
-Console.WriteLine("Statystyki z wykozystaniem pętli Foreach");
-Console.WriteLine($"Average: {statistics2.Average:N2}");
-Console.WriteLine($"Min: {statistics2.Min}");
-Console.WriteLine($"Max: {statistics2.Max}");
-
-var statistics3 = employee.GetStatisticsWithWhile();
-Console.WriteLine("Statystyki z wykozystaniem pętli While");
-Console.WriteLine($"Average: {statistics3.Average:N2}");
-Console.WriteLine($"Min: {statistics3.Min}");
-Console.WriteLine($"Max: {statistics3.Max}");
-
-var statistics4 = employee.GetStatisticsWithDoWhile();
-Console.WriteLine("Statystyki z wykozystaniem pętli DoWhile");
-Console.WriteLine($"Average: {statistics4.Average:N2}");
-Console.WriteLine($"Min: {statistics4.Min}");
-Console.WriteLine($"Max: {statistics4.Max}");
+var statistics = employee.GetStatistics();
+Console.WriteLine($"Average: {statistics.Average}");
+Console.WriteLine($"Min: {statistics.Min}");
+Console.WriteLine($"Max: {statistics.Max}");
