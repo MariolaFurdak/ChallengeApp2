@@ -1,9 +1,10 @@
 ﻿using ChallengeApp2;
 
 Console.WriteLine("Witam w progranie do oceny pracownikow");
+Console.WriteLine("Jezeli chcesz zakończyć wybierz : q");
 Console.WriteLine();
 
-var employee = new Employee("Daniel", "Kowalski", 'M');
+var employee = new EmployeeInFile("Daniel", "Kowalski");
 while (true)
 {
   Console.WriteLine("Podaj kolejną ocene pracownika");
