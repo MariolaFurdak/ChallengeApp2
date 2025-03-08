@@ -5,6 +5,13 @@ Console.WriteLine("Jezeli chcesz zakończyć wybierz : q");
 Console.WriteLine();
 
 var employee = new EmployeeInFile("Daniel", "Kowalski");
+
+employee.GradeAdded += EmployeeGradeAdded;
+
+void EmployeeGradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("Dodano nową ocene");
+} 
 while (true)
 {
   Console.WriteLine("Podaj kolejną ocene pracownika");
