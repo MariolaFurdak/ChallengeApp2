@@ -1,6 +1,6 @@
 ﻿namespace ChallengeApp2
 {
-    internal abstract class EmployeeBase : IEmployee
+    public abstract class EmployeeBase : IEmployee
     {
         public delegate void GradeAddedDelegate(object sender, EventArgs args);
         public abstract event GradeAddedDelegate GradeAdded;
@@ -20,6 +20,10 @@
             if (float.TryParse(grade, out float result))
             {
                 this.AddGrade(result);
+            }
+            else if (char.TryParse(grade, out char resultChar))
+            {
+                this.AddGrade(resultChar);
             }
             else
             {

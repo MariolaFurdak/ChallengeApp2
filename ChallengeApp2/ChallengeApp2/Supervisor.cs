@@ -11,6 +11,24 @@ namespace ChallengeApp2
         }
         public string Name { get; set; }
         public string Surname { get; set; }
+
+        string IEmployee.Name => throw new NotImplementedException();
+
+        string IEmployee.Surname => throw new NotImplementedException();
+
+        event EmployeeBase.GradeAddedDelegate IEmployee.GradeAdded
+        {
+            add
+            {
+                throw new NotImplementedException();
+            }
+
+            remove
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public void AddGrade(float grade)
         {
             if (grade >= 0 && grade <= 100)
@@ -142,38 +160,41 @@ namespace ChallengeApp2
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-
             foreach (var grade in this.grades)
             {
-                statistics.Max = Math.Max(statistics.Max, grade);
-                statistics.Min = Math.Min(statistics.Min, grade);
-                statistics.Average += grade;
-            }
-
-            statistics.Average = statistics.Average / this.grades.Count;
-
-            switch (statistics.Average)
-            {
-                case var average when average >= 80:
-                    statistics.AverageLetter = 'A';
-                    break;
-                case var average when average >= 60:
-                    statistics.AverageLetter = 'B';
-                    break;
-                case var average when average >= 40:
-                    statistics.AverageLetter = 'C';
-                    break;
-                case var average when average >= 20:
-                    statistics.AverageLetter = 'D';
-                    break;
-                default:
-                    statistics.AverageLetter = 'E';
-                    break;
+                statistics.AddGrade(grade);
             }
             return statistics;
+        }
+
+        void IEmployee.AddGrade(float grade)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IEmployee.AddGrade(string grade)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IEmployee.AddGrade(int grade)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IEmployee.AddGrade(long grade)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IEmployee.AddGrade(char grade)
+        {
+            throw new NotImplementedException();
+        }
+
+        Statistics IEmployee.GetStatistics()
+        {
+            throw new NotImplementedException();
         }
     }
 }
